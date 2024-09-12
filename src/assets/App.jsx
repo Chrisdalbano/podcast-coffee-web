@@ -2,6 +2,7 @@ import { Routes, Route, Link } from "react-router-dom";
 import { useState } from "react";
 import Headline from "../Layouts/Headline";
 import Navbar from "../Components/Navbar";
+import FormComponent from "../Components/FormComponent";
 function App() {
   const [count, setCount] = useState(0);
 
@@ -30,6 +31,9 @@ function App() {
           <li>-More secret features!</li>
         </ul>
       </div>
+
+      <FormComponent/>
+      
     </>
   );
 }
