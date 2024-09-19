@@ -1,40 +1,19 @@
-import { Routes, Route, Link } from "react-router-dom";
-import { useState } from "react";
-import Headline from "../Layouts/Headline";
+import { useRef } from "react";
 import Navbar from "../Components/Navbar";
 import FormComponent from "../Components/FormComponent";
+import Headline from "../Layouts/Headline";
+import About from "../Layouts/About";
+
 function App() {
-  const [count, setCount] = useState(0);
+  const formRef = useRef(null);
 
   return (
-    <>
-      <Navbar/>
+    <div className="p-6 lg:p-12">
+      <Navbar formRef={formRef} /> {/* Passing the formRef to Navbar */}
       <Headline />
-
-      {/* <Routes>
-        <Route path="/" element={<Home HomeText={'this is the home text!'}/>}/>
-        <Route path="categories" element={<Categories/>}/>
-      </Routes> */}
-      <div className="pt-8 mx-12">
-        <p className="pt-4">
-          The existentialist Coffee Break serves as a spot for the creatives,
-          thinkers, lovers & coffee adicts that are looking to feed their minds
-          with some funny toughts.
-        </p>
-        <h2 className="pt-4">
-          By joining this Network you'll get cool stuff like:
-        </h2>
-        <ul className=" border-black border-2">
-          <li>-Newsletter Notifications</li>
-          <li>-Alerts when new episodes are released.</li>
-          <li>-Special Promos.</li>
-          <li>-More secret features!</li>
-        </ul>
-      </div>
-
-      <FormComponent/>
-      
-    </>
+      <About />
+      <FormComponent ref={formRef} /> {/* ref to FormComponent */}
+    </div>
   );
 }
 
