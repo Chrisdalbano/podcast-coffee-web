@@ -1,0 +1,44 @@
+@font-face {
+  font-family: "Zilla Slab";
+  src: url("./fonts/ZillaSlab-Regular.ttf") format("truetype"),
+    url("./fonts/ZillaSlab-Bold.ttf") format("truetype"),
+    url("./fonts/ZillaSlab-Italic.ttf") format("truetype");
+}
+
+:root {
+  --primary-color: #d5ddc7;
+  --complementary-color: #516267;
+  --contrast-color: #1c1c1c;
+}
+
+body {
+  font-family: "Zilla Slab";
+  background-color: var(--primary-color);
+  color: var(--contrast-color);
+  line-height: 1.5;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.1;
+}
+
+a {
+  display: block;
+}
+
+h2 {
+  font-size: clamp(4.29rem, 3.49vi + 3.42rem, 7.61rem);
+}
+
+h3 {
+  font-size: clamp(1.13rem, 0.26vi + 1.06rem, 1.38rem);
+}
+
+p {
+  font-size: clamp(1.41rem, 0.44vi + 1.3rem, 1.83rem);
+}
