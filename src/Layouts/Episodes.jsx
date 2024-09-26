@@ -1,11 +1,13 @@
-import PodcastSlider from "../components/PodcastSlider"
+import PodcastSlider from "../components/PodcastSlider";
+import { forwardRef } from "react";
 
-function App() {
+// eslint-disable-next-line react/display-name
+const Episodes = forwardRef((_props, _ref) => {
   return (
-    <div>
+    <div ref={_ref}>
       <PodcastSlider />
     </div>
   );
-}
+});
 
-export default App;
+export default Episodes;

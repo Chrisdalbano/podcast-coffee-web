@@ -1,9 +1,11 @@
+/* eslint-disable react/display-name */
 import GreekTemple from "../assets/images/greek-temple.svg";
+import { forwardRef } from "react";
 
-function About() {
+const About = forwardRef((_props, ref) => {
   return (
     <>
-      <section className="mx-auto w-full">
+      <section ref={ref} className="mx-4 lg:mx-12">
         <div className="space-y-8 flex flex-col">
           <h2>Your Brainfood Spot.</h2>
           <p className="text-fluid-lg">
@@ -36,6 +38,6 @@ function About() {
       </section>
     </>
   );
-}
+}) 
 
 export default About;

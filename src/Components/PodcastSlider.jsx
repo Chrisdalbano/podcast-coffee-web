@@ -32,6 +32,38 @@ const episodes = [
   },
 ];
 
+function GreekNextArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{
+        ...style,
+        display: "block",
+        background: "transparent",
+        color: "red",
+      }}
+      onClick={onClick}
+    />
+  );
+}
+
+function GreekPreviousArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{
+        ...style,
+        display: "block",
+        background: "transparent",
+        color: "green",
+      }}
+      onClick={onClick}
+    />
+  );
+}
+
 // Slider settings
 const sliderSettings = {
   dots: true,
@@ -39,6 +71,8 @@ const sliderSettings = {
   speed: 500,
   slidesToShow: 3,
   slidesToScroll: 1,
+  nextArrow: <GreekNextArrow />,
+  prevArrow: <GreekPreviousArrow />,
   responsive: [
     {
       breakpoint: 1024,
@@ -62,7 +96,7 @@ const PodcastSlider = () => {
         <h2 className="text-fluid-lg text-[var(--complementary-color)] font-bold mb-5">
           Latest Podcast Episodes
         </h2>
-        <Slider {...sliderSettings}>
+        <Slider {...sliderSettings} className="overflow-hidden">
           {episodes.map((episode) => (
             <div key={episode.id} className="p-4">
               <div className="bg-[var(--contrast-color)]  overflow-hidden">

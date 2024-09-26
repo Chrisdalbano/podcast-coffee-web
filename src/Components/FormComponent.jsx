@@ -1,22 +1,31 @@
-import { forwardRef } from "react";
-
-const FormComponent = forwardRef((props, ref) => {
+// eslint-disable-next-line react/display-name
+const FormComponent = () => {
   return (
-    <div
-      ref={ref}
-      id="join_form"
-      className="border-black border-2 bg-[#1C1C1C]"
-    >
-      <form className="flex flex-col">
-        <label className="text-white p-2">Join Now!</label>
-        <input type="text" className="m-2 p-2" placeholder="Name" />
-        <input type="text" className="m-2 p-2" placeholder="Email" />
-        <button type="submit" className="text-white m-2 p-2">
-          Sign Up
+    <div id="join_form" className="newsletter-form w-max">
+      <p className="heading"> Subscribe to The Good Thoughts.</p>
+      <form className="form">
+        <label>Name:</label>
+        <input
+          required=""
+          placeholder="Enter your name"
+          name="name"
+          id="name"
+          type="text"
+        />
+        <label>Name:</label>
+        <input
+          required=""
+          placeholder="Enter your email address"
+          name="email"
+          id="email"
+          type="email"
+        />
+        <button value="Subscribe" type="submit">
+          Subscribe
         </button>
       </form>
     </div>
   );
-});
+};
 
 export default FormComponent;

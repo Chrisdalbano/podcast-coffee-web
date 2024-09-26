@@ -11,6 +11,11 @@
   --contrast-color: #1c1c1c;
 }
 
+::selection {
+  background-color: var(--complementary-color); /* Your custom highlight color */
+  color: var(--primary-color); /* Text color when highlighted */
+}
+
 body {
   font-family: "Zilla Slab";
   background-color: var(--primary-color);

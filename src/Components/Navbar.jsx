@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import Logo from "./Logo";
 
-function Navbar({ formRef }) {
-  const handleClick = () => {
-    formRef.current?.scrollIntoView({ behavior: "smooth" });
+function Navbar({ jumpRefs }) {
+  const handleScrollTo = (ref) => {
+    ref.current?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
@@ -20,21 +20,28 @@ function Navbar({ formRef }) {
       <div className="flex items-center max-lg:border-y text-fluid-base max-lg:border-[var(--contrast-color)]  lg:px-8">
         From thinkers to listeners.
       </div>
-      <ul className="font-bold justify-between max-lg:col-span-1 flex items-right  col-span-3 border-t border-[var(--contrast-color)] max-lg:border-none ">
+      <ul className="font-bold justify-between max-lg:col-span-1 flex items-right col-span-3 border-t border-[var(--contrast-color)] max-lg:border-none">
         <li>
-          <ul className="flex gap-4 items-center h-full pl-4 max-lg:pl-0  underline">
+          <ul className="flex gap-4 items-center h-full pl-4 max-lg:pl-0 underline">
             <li>
-              <Link to="/">Podcast</Link>
+              {/* Scroll to the "Podcast" section */}
+              <Link onClick={() => handleScrollTo(jumpRefs.podcastRef)}>
+                Podcast
+              </Link>
             </li>
             <li>
-              <Link to="/">About</Link>
+              {/* Scroll to the "About" section */}
+              <Link onClick={() => handleScrollTo(jumpRefs.aboutRef)}>
+                About
+              </Link>
             </li>
           </ul>
         </li>
 
         <li className="">
+          {/* Scroll to the "Form" section */}
           <Link
-            onClick={handleClick}
+            onClick={() => handleScrollTo(jumpRefs.formRef)}
             className="text-[var(--primary-color)] py-2 block bg-[var(--contrast-color)] h-full px-8 "
           >
             Join
