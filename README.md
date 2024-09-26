@@ -24,7 +24,7 @@ This project focuses on demonstrating a landing podcast website with call to act
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/your-username/existential-coffee-break.git
+   git clone https://github.com/Chrisdalbano/podcast-coffee-web.git
    cd existential-coffee-break
    ```
 
