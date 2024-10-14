@@ -9,7 +9,7 @@ const About = forwardRef((_props, ref) => {
         <div className="space-y-8 flex flex-col">
           <h2>Your Brainfood Spot.</h2>
           <p className="text-fluid-lg">
-            This podcast was created to create a thinking, relaxing and
+            This podcast was created to own a thinking, relaxing and
             entertaining space about core topics of our lives, and how do they
             relate to historical moments of western and modern philosophy.{" "}
             <span className="italic font-serif">
