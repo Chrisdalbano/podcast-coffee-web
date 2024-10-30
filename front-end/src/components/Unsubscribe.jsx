@@ -1,8 +1,7 @@
 import { useState } from "react";
 
 // eslint-disable-next-line react/display-name
-const FormComponent = () => {
-  const [name, setName] = useState("");
+const Unsubscribe = () => {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
 
@@ -10,24 +9,22 @@ const FormComponent = () => {
     e.preventDefault();
 
     const subscriberData = {
-      name: name,
       email: email,
     };
 
     try {
-      const response = await fetch("http://127.0.0.1:8000/api/subscribe/", {
-        method: "POST",
+      const response = await fetch("http://127.0.0.1:8000/api/unsubscribe/", {
+        method: "DELETE",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(subscriberData),
       });
       if (response.ok) {
-        setMessage("Thanks for subscribing! ");
-        setName("");
+        setMessage("Sad to see you go. You have unsubscribed. ");
         setEmail("");
       } else {
-        setMessage("Failed to subscribed. Try again.");
+        setMessage("Failed to unsubscribed. Try again.");
       }
     } catch (error) {
       console.error("Error submitting form: ", error);
@@ -37,28 +34,19 @@ const FormComponent = () => {
 
   return (
     <div id="join_form" className="newsletter-form w-max">
-      <p className="heading"> Subscribe to The Good Thoughts.</p>
+      <p className="heading"> You are about to unsubscribe.</p>
       <form className="form" onSubmit={handleSubmit}>
-        <label>Name:</label>
-        <input
-          required
-          placeholder="Enter your name"
-          name="name"
-          id="name"
-          type="text"
-          onChange={(e) => setName(e.target.value)}
-        />
         <label>Email:</label>
         <input
           required
-          placeholder="Enter your email address"
+          placeholder="Enter your email address to unsubscribe"
           name="email"
           id="email"
           type="email"
           onChange={(e) => setEmail(e.target.value)}
         />
-        <button value="Subscribe" type="submit">
-          Subscribe
+        <button value="Unsubscribe" type="submit">
+          Unsubscribe
         </button>
       </form>
       {message && (
@@ -68,4 +56,4 @@ const FormComponent = () => {
   );
 };
 
-export default FormComponent;
+export default Unsubscribe;
