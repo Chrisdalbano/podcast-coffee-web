@@ -10,7 +10,7 @@ const Podcast = forwardRef((_props, ref) => {
           before. <span className="italic">Immerse in the existentialism.</span>{" "}
         </p>
       </div>
-      <div className="flex-1">
+      <div className="flex-1 flex justify-center">
         <FormComponent />
       </div>
       

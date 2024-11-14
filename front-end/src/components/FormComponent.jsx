@@ -1,10 +1,13 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
+import party from "party-js";
 
-// eslint-disable-next-line react/display-name
 const FormComponent = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+
+  // Using useRef to get the reference of the button
+  const runButton = useRef(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -22,12 +25,21 @@ const FormComponent = () => {
         },
         body: JSON.stringify(subscriberData),
       });
+
       if (response.ok) {
-        setMessage("Thanks for subscribing! ");
+        setMessage("Thanks for subscribing!");
+
+        // Trigger confetti on the button
+        if (runButton.current) {
+          party.confetti(runButton.current, {
+            count: party.variation.range(20, 40),
+          });
+        }
+
         setName("");
         setEmail("");
       } else {
-        setMessage("Failed to subscribed. Try again.");
+        setMessage("Failed to subscribe. Try again.");
       }
     } catch (error) {
       console.error("Error submitting form: ", error);
@@ -37,7 +49,7 @@ const FormComponent = () => {
 
   return (
     <div id="join_form" className="newsletter-form w-max">
-      <p className="heading"> Subscribe to The Good Thoughts.</p>
+      <p className="heading">Subscribe to The Good Thoughts.</p>
       <form className="form" onSubmit={handleSubmit}>
         <label>Name:</label>
         <input
@@ -46,6 +58,7 @@ const FormComponent = () => {
           name="name"
           id="name"
           type="text"
+          value={name}
           onChange={(e) => setName(e.target.value)}
         />
         <label>Email:</label>
@@ -55,9 +68,10 @@ const FormComponent = () => {
           name="email"
           id="email"
           type="email"
+          value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
-        <button value="Subscribe" type="submit">
+        <button type="submit" ref={runButton}>
           Subscribe
         </button>
       </form>

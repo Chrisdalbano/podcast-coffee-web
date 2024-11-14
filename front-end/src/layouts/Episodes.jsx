@@ -14,7 +14,7 @@ const Episodes = forwardRef((_props, _ref) => {
   }, []);
 
   return (
-    <div ref={_ref}>
+    <div ref={_ref} className="my-20">
       {/* Pass episodes data to PodcastSlider */}
       <PodcastSlider episodes={episodes} />
     </div>

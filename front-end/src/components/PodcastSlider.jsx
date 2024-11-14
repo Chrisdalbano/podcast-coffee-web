@@ -1,43 +1,27 @@
 import Slider from "react-slick";
 import PropTypes from "prop-types";
 
-// {
-//   id: 4,
-//   title: "Episode 4: Ethics in the Modern World",
-//   description:
-//     "A look into modern ethical dilemmas and how philosophy can help.",
-//   duration: "50 mins",
-// },
-
 // Custom Next Arrow component
-function GreekNextArrow(props) {
+function CustomNextArrow(props) {
   const { className, style, onClick } = props;
   return (
-    <div
-      className={className}
-      style={{
-        ...style,
-        display: "block",
-        background: "transparent",
-        color: "red",
-      }}
+    <button
+      className={`${className} custom-arrow custom-next-arrow`}
+      style={{ ...style, backgroundColor: "transparent" }}
+      aria-label="Next"
       onClick={onClick}
     />
   );
 }
 
 // Custom Previous Arrow component
-function GreekPreviousArrow(props) {
+function CustomPreviousArrow(props) {
   const { className, style, onClick } = props;
   return (
-    <div
-      className={className}
-      style={{
-        ...style,
-        display: "block",
-        background: "transparent",
-        color: "green",
-      }}
+    <button
+      className={`${className} custom-arrow custom-prev-arrow`}
+      style={{ ...style, backgroundColor: "transparent" }}
+      aria-label="Previous"
       onClick={onClick}
     />
   );
@@ -50,8 +34,8 @@ const sliderSettings = {
   speed: 500,
   slidesToShow: 3,
   slidesToScroll: 1,
-  nextArrow: <GreekNextArrow />,
-  prevArrow: <GreekPreviousArrow />,
+  nextArrow: <CustomNextArrow />,
+  prevArrow: <CustomPreviousArrow />,
   responsive: [
     {
       breakpoint: 1024,
@@ -70,25 +54,31 @@ const sliderSettings = {
 
 const PodcastSlider = ({ episodes }) => {
   if (!episodes || episodes.length === 0) {
-    return <div>No episodes available.</div>;
+    return (
+      <div className="text-center text-gray-500">No episodes available.</div>
+    );
   }
 
   return (
-    <section className="podcast-slider-section py-10">
-      <div className="container  px-5 text-[var(--primary-color)]">
-        <h2 className="text-fluid-lg text-[var(--complementary-color)] font-bold mb-5">
+    <section className="podcast-slider-section py-10 bg-[var(--primary-color)]  ">
+      <div className="container mx-auto px-5">
+        <h2 className="text-[var(--complementary-color)]  mb-5 text-center">
           Latest Podcast Episodes
         </h2>
-        <Slider {...sliderSettings} className="overflow-hidden">
+        <Slider {...sliderSettings}>
           {episodes.map((episode) => (
             <div key={episode.id} className="p-4">
-              <div className="bg-[var(--contrast-color)] overflow-hidden">
-                <div className="p-4">
-                  <h3 className="text-fluid-lg font-bold mb-2">
+              <div className="bg-[var(--contrast-color)] text-[var(--primary-color)]   overflow-hidden transition-transform transform hover:scale-105">
+                <div className="p-5">
+                  <h3 className="font-bold mb-2 text-[var(--primary-color)]">
                     {episode.title}
                   </h3>
-                  <p className="mb-3 text-fluid-base">{episode.description}</p>
-                  <span className="block">{episode.duration}</span>
+                  <p className="text-[var(--primary-color)] mb-4">
+                    {episode.description}
+                  </p>
+                  <span className="block text-sm text-[var(--primary-color)] opacity-70">
+                    {episode.duration}
+                  </span>
                 </div>
               </div>
             </div>
