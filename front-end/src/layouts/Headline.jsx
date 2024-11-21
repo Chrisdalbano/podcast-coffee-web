@@ -15,7 +15,7 @@ function Headline() {
         {/* Left Content */}
         <div className=" space-y-8 px-8 py-8  col-span-2 md:col-span-1 row-span-2">
           <h1 className="my-2 font-bold text-fluid-4xl  text-[--primary-color] whitespace-break-spaces animate-text-fade">
-            Get existential in your Coffee Break
+            Get Existential in your Coffee Break
           </h1>
 
           <h3 className="italic text-[var(--primary-color)] max-w-[50%] animate-text-fade">

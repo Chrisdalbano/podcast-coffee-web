@@ -13,7 +13,6 @@
   transform: translateY(0);
 }
 
-/* Text fade-in and typing-like effect */
 @keyframes text-fade {
   0% {
     opacity: 0;
@@ -29,4 +28,22 @@
   animation: text-fade 0.7s ease-in-out forwards;
   animation-delay: 0.3s;
   opacity: 0;
+}
+
+/* The following styles provide the full functionality and styling of the Snap-scrolling Behaviors
+*/
+.scroll-container {
+  height: 100vh;
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
+}
+
+.scroll-section {
+  scroll-snap-align: start;
+  padding: 2rem;
+}
+
+.scroll-container {
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary-color) var(--contrast-color);
 }

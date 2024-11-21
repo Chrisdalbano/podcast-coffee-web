@@ -23,14 +23,17 @@ function App() {
   });
 
   return (
-    <div className="mx-4 sm:mx-6 md:mx-2 lg:pt-8 lg:px-16 space-y-4">
-      <Navbar jumpRefs={{ formRef, aboutRef, podcastRef }} />
-      <Headline />
+    <div className="scroll-container">
+      <div className="scroll-section">
+        <Navbar jumpRefs={{ formRef, aboutRef, podcastRef }} />
+
+        <Headline />
+      </div>
 
       {/* About Section */}
       <div
         ref={aboutInViewRef}
-        className={`fade-in ${aboutInView ? "show" : ""}`}
+        className={`scroll-section fade-in ${aboutInView ? "show" : ""}`}
       >
         <About ref={aboutRef} />
       </div>
@@ -38,7 +41,7 @@ function App() {
       {/* Episodes Section */}
       <div
         ref={podcastInViewRef}
-        className={`fade-in ${podcastInView ? "show" : ""}`}
+        className={`scroll-section fade-in ${podcastInView ? "show" : ""}`}
       >
         <Episodes ref={podcastRef} />
       </div>
@@ -46,12 +49,11 @@ function App() {
       {/* Form Section */}
       <div
         ref={formInViewRef}
-        className={`fade-in ${formInView ? "show" : ""}`}
+        className={`scroll-section fade-in ${formInView ? "show" : ""}`}
       >
         <FormSection ref={formRef} />
+        <Footer />
       </div>
-
-      <Footer />
     </div>
   );
 }

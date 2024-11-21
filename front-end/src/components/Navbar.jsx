@@ -7,7 +7,7 @@ function Navbar({ jumpRefs }) {
   };
 
   return (
-    <nav className="grid grid-cols-[2fr_1fr_1fr] border-b border-[var(--contrast-color)] max-lg:grid-cols-1 max-lg:border-none">
+    <nav className="grid grid-cols-[2fr_1fr_1fr] border-b border-[var(--contrast-color)] max-lg:grid-cols-1 mb-4 max-lg:border-none">
       <div className="items-left flex gap-4 border-r border-[var(--contrast-color)] max-lg:border-none ">
         <Logo />
       </div>
